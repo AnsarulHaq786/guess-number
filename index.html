@@ -8,11 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <input type="text" id="input" style="width: 200px;" placeholder="Guess number between 1 and 20">
-        <div class="buttons">
-        <button type="button" id="submitButton" onclick="checkNum()">Submit</button>
-        <p id="para"></p>
-        <button type="button" id="giftButton" style="display: none" onclick="openGift()">Open Gift</button>
+        <header class="header">
+            <h1 id="title">Number <span>Guessing</span> Game</h1>
+            <p id="description">Guess number between 1 to 100 and win unexpected prize.</p>
+        </header>
+        <form id="number-form">
+            <input id="input" type="number" placeholder="1-100">
+            <button id="submit-button" type="button">
+                <img src="./images/right-submit-button.png">
+            </button>
+        </form>
+        <div class="result">
+            <p id="result-text"></p>
+            <img id="result-img" src="./images/cat-thinking&curious.webp">
         </div>
     </div>
     <script src="script.js"></script>
