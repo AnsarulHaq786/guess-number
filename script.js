@@ -31,13 +31,3 @@ submitButton.addEventListener('click', ()=> {
             aTag.appendChild(resultImg);
         }
 });
-
-function checkNum()
-{
-    
-        
-}
-function openGift()
-{
-    location.href="";
-}
