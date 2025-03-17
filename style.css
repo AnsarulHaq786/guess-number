@@ -1,10 +1,17 @@
 :root {
-    --color-pinky: #837aae;
-    --color-lightgray: #839799;
-    --color-darkgray: #565b60;
-    --color-greenyblue: #58cebc;
-    --color-darkcyan: #3e8f98;
-    --color-greeny: #41ca65;
+    --bg-color: #565b60;
+    --text-color: #41ca65;
+    --container-bg: #839799;
+    --title-color: #3e8f98;
+    --highlight-color: #58cebc;
+}
+
+[data-theme="batman"] {
+    --bg-color: #1b1b1b;
+    --text-color: #f3c623;
+    --container-bg: #333333;
+    --title-color: #ffffff;
+    --highlight-color: #f3c623;
 }
 
 body {
@@ -12,14 +19,14 @@ body {
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    background-color: var(--color-lightgray);
+    background-color: var(--container-bg);
 }
 
 .container {
     margin: 0 auto;
     padding: 30px;
     max-width: 800px;
-    background-color: var(--color-darkgray);
+    background-color: var(--bg-color);
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
@@ -34,13 +41,13 @@ body {
 }
 
 #title {
-    color: var(--color-darkcyan);
+    color: var(--title-color);
     font-size: 48px;
     font-weight: 600;
 }
 
 #title span {
-    color: var(--color-greeny);
+    color: var(--text-color);
     font-size: 48px;
     font-weight: 500;
 }
@@ -49,7 +56,7 @@ body {
     margin: 0 auto;
     max-width: 500px;
     text-align: center; 
-    color: var(--color-greenyblue);
+    color: var(--highlight-color);
     font-size: 24px;
 }
 
@@ -61,7 +68,7 @@ form {
     width: 80%;
     margin: 0 auto;
     padding: 10px;
-    border: 3px solid var(--color-lightgray);
+    border: 3px solid #565b60;
     border-radius: 8px;
     box-sizing: border-box;
 }
@@ -97,7 +104,7 @@ form {
 }
 
 #result-text {
-    color: var(--color-greeny);
+    color: var(--text-color);
     font-size: 32px;
     font-weight: 500;
 }
