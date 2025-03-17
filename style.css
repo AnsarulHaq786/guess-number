@@ -32,6 +32,7 @@ body {
 }
 
 .header, form {
+    position: relative;
     margin: 4px 0;
     display: flex;
     flex-direction: column;
@@ -58,6 +59,24 @@ body {
     text-align: center; 
     color: var(--highlight-color);
     font-size: 24px;
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#theme-toogle {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+#theme-toggle img{
+    align-self: center;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 0 8px rgba(90, 255, 24, 0.4);
 }
 
 form {
