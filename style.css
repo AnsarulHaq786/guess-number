@@ -67,16 +67,23 @@ body {
     margin-top: 10px;
 }
 
-#theme-toogle {
+#theme-toggle {
     border: none;
-    background: transparent;
+    border-radius: 16%;
+    background: #8ff9ff;
     cursor: pointer;
 }
+
+#theme-toggle:hover {
+    transform: scale(1.15);
+    background: #53f6ff;
+}
+
 #theme-toggle img{
     align-self: center;
     width: 36px;
     height: 36px;
-    box-shadow: 0 0 8px rgba(90, 255, 24, 0.4);
+    box-shadow: 0 0 8px rgba(71, 255, 71, 0.4);
 }
 
 form {
@@ -104,8 +111,16 @@ form {
     justify-content: center;
     border-radius: 8px;
     margin: 2%;
+    border: 0;
     outline: 0;
     padding: 4px 4px;
+    background: #97ffbf;
+    box-shadow: 0 0 8px rgba(222, 255, 33, 0.5);
+}
+
+#submit-button:hover {
+    transform: scale(1.1);
+    background: #7bffae;
 }
 
 #submit-button img {
