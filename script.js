@@ -9,7 +9,7 @@ let resultText = document.getElementById("result-text");
 const batmanButton="./images/bat.png";
 const batmanThinking="./images/batman-curioius-thinking.webp";
 const batmanUp="./images/batman-holding-uparrow-board.webp";
-const batmanDown="./images/batman-holding-uparrow-board.webp";
+const batmanDown="./images/batman-holding-downarrow-board.webp";
 const batmanGift="./images/batman-holding-giftbox.webp";
 
 const catButton="./images/cat.png";
@@ -23,8 +23,15 @@ const highText="Oops you are over confident, try smaller number!";
 const congratsText="Congratulations!, Accept the provided gift by clicking on the gift box.";
 
 let text="";
-let catImage="";
-let batmanImage="";
+let catImage=catThinking;
+let batmanImage=batmanThinking;
+
+function saveData(newTheme) {
+  localStorage.setItem("theme", newTheme);
+  localStorage.setItem("themeImage", themeToggleImage.src);
+  localStorage.setItem("resultImg", resultImg.src)
+  localStorage.setItem("resultText", resultText.innerText);
+}
 
 themeToggle.addEventListener("click", () => {
   const currentTheme = document.documentElement.getAttribute("data-theme");
@@ -33,29 +40,17 @@ themeToggle.addEventListener("click", () => {
   document.documentElement.setAttribute("data-theme", newTheme);
   if (newTheme === "batman") {
     themeToggleImage.src = catButton;
-    resultImg.src = catImage;
+    resultImg.src = batmanImage;
     resultText.innerText = text;
   }
   else {
     themeToggleImage.src = batmanButton;
-    resultImg.src = batmanImage;
+    resultImg.src = catImage;
     resultText.innerText = text;
   }
-  
-  localStorage.setItem("theme", newTheme);
-  localStorage.setItem("themeImage", themeToggleImage.src);
-  localStorage.setItem("resultImg", resultImg.src)
-  localStorage.setItem("resultText", resultText.innerText);
-  
+  saveData(newTheme); 
 });
 
-window.onload = () => {
-  const savedTheme = localStorage.getItem("theme") || "cat";
-  document.documentElement.setAttribute("data-theme", savedTheme);
-  themeToggleImage.src = localStorage.getItem("themeImage");
-  resultImg.src = localStorage.getItem("resultImg");
-  resultText.innerText = localStorage.getItem("resultText");
-};
 
 submitButton.addEventListener("click", () => {
   const currentTheme = document.documentElement.getAttribute("data-theme"); 
@@ -80,9 +75,21 @@ submitButton.addEventListener("click", () => {
     text=congratsText;
     catImage=catGift;
     batmanImage=batmanGift;
+    let existingLink = result[0].querySelector("a");
+    if (!existingLink) {
+      var aTag = document.createElement("a");
+      aTag.setAttribute("href", "https://youtu.be/xvFZjo5PgG0?autoplay=1");
+      result[0].appendChild(aTag);
+      aTag.appendChild(resultImg);
+    }
   }
-  var aTag = document.createElement("a");
-  aTag.setAttribute("href", "https://youtu.be/xvFZjo5PgG0?autoplay=1");
-  result[0].appendChild(aTag);
-  aTag.appendChild(resultImg);
+  saveData(currentTheme);
 });
+
+window.onload = () => {
+  const savedTheme = localStorage.getItem("theme") || "cat";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  themeToggleImage.src = localStorage.getItem("themeImage");
+  resultImg.src = localStorage.getItem("resultImg");
+  resultText.innerText = localStorage.getItem("resultText");
+};
