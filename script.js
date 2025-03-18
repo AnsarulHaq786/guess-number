@@ -89,7 +89,7 @@ submitButton.addEventListener("click", () => {
 window.onload = () => {
   const savedTheme = localStorage.getItem("theme") || "cat";
   document.documentElement.setAttribute("data-theme", savedTheme);
-  themeToggleImage.src = localStorage.getItem("themeImage");
-  resultImg.src = localStorage.getItem("resultImg");
+  themeToggleImage.src = localStorage.getItem("themeImage") || batmanButton;
+  resultImg.src = localStorage.getItem("resultImg") || catThinking;
   resultText.innerText = localStorage.getItem("resultText");
 };
